@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function MainHeader() {
   const navigate = useNavigate();
   return (
-    <header className="text-gray-400 bg-gray-900 body-font fixed top-0 w-full">
+    <header className="text-gray-400 bg-gray-900 body-font top-0 w-full md:fixed">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div
           onClick={() => navigate("/")}
