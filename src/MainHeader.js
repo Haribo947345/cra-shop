@@ -16,32 +16,32 @@ function MainHeader() {
             onClick={() => navigate("/iphone")}
             className="mr-5 hover:text-white cursor-pointer"
           >
-            iPhone
+            아이폰
           </span>
           <span
             onClick={() => navigate("ipad")}
             className="mr-5 hover:text-white cursor-pointer"
           >
-            iPad
+            아이패드
           </span>
           <span
             onClick={() => navigate("macbook")}
             className="mr-5 hover:text-white cursor-pointer"
           >
-            MacBook
+            맥북
           </span>
           <span
             onClick={() => navigate("acc")}
             className="mr-5 hover:text-white cursor-pointer"
           >
-            Acc
+            악세사리
           </span>
         </nav>
         <button
           onClick={() => navigate("login")}
           className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
         >
-          Sign in
+          로그인
         </button>
       </div>
     </header>
