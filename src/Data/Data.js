@@ -5,7 +5,7 @@ import IPadAir from "../Img/iPadAir.png";
 import MacBookAir from "../Img/MacBookAir.png";
 import MacBookPro from "../Img/MacBookPro.png";
 
-const MainHomeData = [
+export const MainHomeData = [
   {
     ID: 1,
     CATEGORY: "iPhone",
@@ -50,4 +50,53 @@ const MainHomeData = [
   },
 ];
 
-export default MainHomeData;
+export const MainiPhoneData = [
+  {
+    ID: 1,
+    CATEGORY: "iPhone",
+    NAME: "iPhone 14 Pro",
+    PRICE: "$999",
+    IMG: iPhone14Pro,
+  },
+  {
+    ID: 2,
+    CATEGORY: "iPhone",
+    NAME: "iPhone 14 Pro Max",
+    PRICE: "$1099",
+    IMG: iPhone14ProMax,
+  },
+];
+
+export const MainiPadData = [
+  {
+    ID: 1,
+    CATEGORY: "iPad",
+    NAME: "iPad Air",
+    PRICE: "$599",
+    IMG: IPadAir,
+  },
+  {
+    ID: 2,
+    CATEGORY: "iPad",
+    NAME: "iPad Pro 12.9-inch",
+    PRICE: "$1099",
+    IMG: iPad12IMG,
+  },
+];
+
+export const MainMacBookData = [
+  {
+    ID: 1,
+    CATEGORY: "MacBook",
+    NAME: "MacBook Air with M2 chip",
+    PRICE: "$1199",
+    IMG: MacBookAir,
+  },
+  {
+    ID: 2,
+    CATEGORY: "MacBook",
+    NAME: "MacBook Pro 16-inch",
+    PRICE: "$2499",
+    IMG: MacBookPro,
+  },
+];
