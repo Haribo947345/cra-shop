@@ -117,10 +117,10 @@ function MainLogin() {
           <p className="text-xs font-medium mt-7 text-center">
             이메일, 비밀번호를 작성해야 버튼이 활성화 됩니다!
           </p>
-          <button className="mt-5 text-white bg-indigo-300 border-0 py-2 px-8 focus:outline-none rounded text-sm">
+          <button className="mt-5 text-white bg-indigo-700 border-0 py-2 px-8 focus:outline-none rounded text-sm">
             비밀번호 찾기
           </button>
-          <button className="mt-5 text-white bg-indigo-300 border-0 py-2 px-8 focus:outline-none rounded text-sm">
+          <button className="mt-5 text-white bg-indigo-700 border-0 py-2 px-8 focus:outline-none rounded text-sm">
             회원가입
           </button>
         </div>
