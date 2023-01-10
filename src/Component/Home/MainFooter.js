@@ -6,7 +6,7 @@ function MainFooter() {
           <span className="ml-3 text-xl">동글쇼핑</span>
         </div>
         <p className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
-          동글쇼핑에 방문해주셔서 감사합니다.
+          동글쇼핑의 모든 제품은 미개봉 제품만 판매합니다.
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <div className="text-gray-400">
