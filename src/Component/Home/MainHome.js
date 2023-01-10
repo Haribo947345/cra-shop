@@ -8,9 +8,9 @@ function MainHome() {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
             {MainHomeData &&
-              MainHomeData.map((el) => {
+              MainHomeData.map((el, idx) => {
                 return (
-                  <div className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40">
+                  <div key={idx} className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40">
                     <img
                       alt="ecommerce"
                       className="object-contain object-center w-full h-full block"

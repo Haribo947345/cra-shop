@@ -5,6 +5,7 @@ import MainHome from "./Component/Home/MainHome";
 import MainiPhone from "./Component/iPhone/MainiPhone";
 import MainiPad from "./Component/iPad/MainiPad";
 import MainMacBook from "./Component/MacBook/MainMacBook";
+import MainAcc from "./Component/Acc/MainAcc";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/iphone" element={<MainiPhone />} />
         <Route path="/ipad" element={<MainiPad />} />
         <Route path="/macbook" element={<MainMacBook />} />
+        <Route path="/acc" element={<MainAcc />} />
       </Routes>
     </>
   );

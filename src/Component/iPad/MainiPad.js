@@ -1,14 +1,14 @@
 import { MainiPadData } from "../../Data/Data";
 
-function MainiPhone() {
+function MainiPad() {
   return (
     <section className="text-gray-400 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           {MainiPadData &&
-            MainiPadData.map((el) => {
+            MainiPadData.map((el, idx) => {
               return (
-                <div className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40">
+                <div key={idx} className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40">
                   <img
                     alt="ecommerce"
                     className="object-contain object-center w-full h-full block"
@@ -33,4 +33,4 @@ function MainiPhone() {
   );
 }
 
-export default MainiPhone;
+export default MainiPad;

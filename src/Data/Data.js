@@ -4,6 +4,8 @@ import iPad12IMG from "../Img/iPad12.9.png";
 import IPadAir from "../Img/iPadAir.png";
 import MacBookAir from "../Img/MacBookAir.png";
 import MacBookPro from "../Img/MacBookPro.png";
+import AirpodsMax from "../Img/AirpodsMax.png";
+import AirpodsPro from "../Img/AirpodsPro.png";
 
 export const MainHomeData = [
   {
@@ -30,7 +32,7 @@ export const MainHomeData = [
   {
     ID: 4,
     CATEGORY: "iPad",
-    NAME: "iPad Pro 12.9-inch",
+    NAME: "iPad Pro",
     PRICE: "$1099",
     IMG: iPad12IMG,
   },
@@ -44,9 +46,23 @@ export const MainHomeData = [
   {
     ID: 6,
     CATEGORY: "MacBook",
-    NAME: "MacBook Pro 16-inch",
+    NAME: "MacBook Pro with M1 chip",
     PRICE: "$2499",
     IMG: MacBookPro,
+  },
+  {
+    ID: 7,
+    CATEGORY: "Airpods",
+    NAME: "Airpods Max",
+    PRICE: "$249",
+    IMG: AirpodsMax,
+  },
+  {
+    ID: 8,
+    CATEGORY: "Airpods",
+    NAME: "Airpods Pro",
+    PRICE: "$549",
+    IMG: AirpodsPro,
   },
 ];
 
@@ -78,7 +94,7 @@ export const MainiPadData = [
   {
     ID: 2,
     CATEGORY: "iPad",
-    NAME: "iPad Pro 12.9-inch",
+    NAME: "iPad Pro",
     PRICE: "$1099",
     IMG: iPad12IMG,
   },
@@ -95,8 +111,25 @@ export const MainMacBookData = [
   {
     ID: 2,
     CATEGORY: "MacBook",
-    NAME: "MacBook Pro 16-inch",
+    NAME: "MacBook Pro with M1 chip",
     PRICE: "$2499",
     IMG: MacBookPro,
+  },
+];
+
+export const MainAccData = [
+  {
+    ID: 1,
+    CATEGORY: "Airpods",
+    NAME: "Airpods Max",
+    PRICE: "$249",
+    IMG: AirpodsMax,
+  },
+  {
+    ID: 2,
+    CATEGORY: "Airpods",
+    NAME: "Airpods Pro",
+    PRICE: "$549",
+    IMG: AirpodsPro,
   },
 ];
