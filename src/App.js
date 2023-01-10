@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import MainHeader from "./Component/Home/MainHeader";
 import MainHome from "./Component/Home/MainHome";
+import MainFooter from "./Component/Home/MainFooter";
 
 import MainiPhone from "./Component/iPhone/MainiPhone";
 import MainiPad from "./Component/iPad/MainiPad";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/macbook" element={<MainMacBook />} />
         <Route path="/acc" element={<MainAcc />} />
       </Routes>
+      <MainFooter />
     </>
   );
 }

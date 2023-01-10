@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function MainHeader() {
   const navigate = useNavigate();
   return (
-    <header className="text-gray-400 bg-gray-900 body-font top-0 w-full md:fixed">
+    <header className="text-gray-400 bg-slate-800 body-font top-0 w-full md:fixed">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div
           onClick={() => navigate("/")}
@@ -39,7 +39,7 @@ function MainHeader() {
         </nav>
         <button
           onClick={() => navigate("login")}
-          className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
+          className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
         >
           로그인
         </button>

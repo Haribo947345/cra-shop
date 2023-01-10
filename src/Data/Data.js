@@ -1,5 +1,5 @@
-import iPhone14ProMax from "../Img/iPhone14ProMax.jpeg";
-import iPhone14Pro from "../Img/iPhone14Pro.jpeg";
+import iPhone14ProMax from "../Img/iPhone14ProMax.png";
+import iPhone14Pro from "../Img/iPhone14Pro.png";
 import iPad12IMG from "../Img/iPad12.9.png";
 import IPadAir from "../Img/iPadAir.png";
 import MacBookAir from "../Img/MacBookAir.png";
