@@ -1,13 +1,16 @@
 import { Route, Routes } from "react-router-dom";
+
+// 메인페이지
 import MainHeader from "./Component/Home/MainHeader";
 import MainHome from "./Component/Home/MainHome";
 import MainFooter from "./Component/Home/MainFooter";
 
+// 메뉴진입
 import MainiPhone from "./Component/iPhone/MainiPhone";
 import MainiPad from "./Component/iPad/MainiPad";
 import MainMacBook from "./Component/MacBook/MainMacBook";
 import MainAcc from "./Component/Acc/MainAcc";
-import MainLogin from "./Component/Login/MainLogin";
+import MainLogin from "./Component/Member/Login/MainLogin";
 
 function App() {
   return (
