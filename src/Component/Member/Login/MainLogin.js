@@ -49,7 +49,7 @@ function MainLogin() {
   const PostLogin = async () => {
     try {
       const req = await axios.post(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBlY7KchLUAdf1wFZ9clKbIEVV9xqTGfcE`,
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}`,
         { email: email, password: password }
       );
       console.log(req);
