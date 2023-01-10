@@ -54,14 +54,14 @@ export const MainHomeData = [
     ID: 7,
     CATEGORY: "Airpods",
     NAME: "Airpods Max",
-    PRICE: "$249",
+    PRICE: "$549",
     IMG: AirpodsMax,
   },
   {
     ID: 8,
     CATEGORY: "Airpods",
     NAME: "Airpods Pro",
-    PRICE: "$549",
+    PRICE: "$249",
     IMG: AirpodsPro,
   },
 ];
@@ -122,14 +122,14 @@ export const MainAccData = [
     ID: 1,
     CATEGORY: "Airpods",
     NAME: "Airpods Max",
-    PRICE: "$249",
+    PRICE: "$549",
     IMG: AirpodsMax,
   },
   {
     ID: 2,
     CATEGORY: "Airpods",
     NAME: "Airpods Pro",
-    PRICE: "$549",
+    PRICE: "$249",
     IMG: AirpodsPro,
   },
 ];
