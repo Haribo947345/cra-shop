@@ -64,7 +64,7 @@ function MainSignUp() {
     [password]
   );
 
-  // 로그인 관련 Axios
+  // 회원가입 관련 Axios
   const PostSignUp = async () => {
     try {
       const req = await axios.post(

@@ -1,9 +1,15 @@
 import axios from "axios";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../../Store/AuthContext";
 
 function MainLogin() {
+  // 네비게이션
   const navigate = useNavigate();
+
+  // 컨텍스트 관련
+  const authCtx = useContext(AuthContext);
+
   // 이메일, 비밀번호 저장 State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,7 +60,7 @@ function MainLogin() {
         `${process.env.REACT_APP_LOGIN}${process.env.REACT_APP_API_KEY}`,
         { email: email, password: password }
       );
-      console.log(req);
+      authCtx.login(req.data.idToken);
     } catch (e) {
       console.log(e);
     }
