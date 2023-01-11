@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MainSignUp() {
+  // 네비게이션
+  const navigate = useNavigate();
+
   // 이메일, 비밀번호 저장 State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,13 +71,14 @@ function MainSignUp() {
   // 회원가입 관련 Axios
   const PostSignUp = async () => {
     try {
-      const req = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_SIGNUP}${process.env.REACT_APP_API_KEY}`,
         { email: email, password: password }
       );
-      console.log(req);
+      alert("회원가입이 완료되었습니다.");
+      navigate("/login");
     } catch (e) {
-      console.log(e);
+      alert("회원가입이 정상적으로 이루어지지 않았습니다.");
     }
   };
 

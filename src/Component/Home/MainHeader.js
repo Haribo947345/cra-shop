@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../Store/AuthContext";
 
 function MainHeader() {
+  // 네비게이션
   const navigate = useNavigate();
+
+  // 로그인 확인하기
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
+
   return (
     <header className="text-gray-400 bg-slate-800 body-font top-0 w-full">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -37,12 +45,24 @@ function MainHeader() {
             악세사리
           </span>
         </nav>
-        <button
-          onClick={() => navigate("login")}
-          className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
-        >
-          로그인
-        </button>
+        {isLoggedIn ? (
+          <button
+            onClick={() => {
+              authCtx.logout();
+              window.location.replace("/");
+            }}
+            className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
+          >
+            로그아웃
+          </button>
+        ) : (
+          <button
+            onClick={() => navigate("login")}
+            className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
+          >
+            로그인
+          </button>
+        )}
       </div>
     </header>
   );
