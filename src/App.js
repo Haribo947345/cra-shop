@@ -11,6 +11,7 @@ import MainiPad from "./Component/iPad/MainiPad";
 import MainMacBook from "./Component/MacBook/MainMacBook";
 import MainAcc from "./Component/Acc/MainAcc";
 import MainLogin from "./Component/Member/Login/MainLogin";
+import MainSignUp from "./Component/Member/SignUp/MainSignUp";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/macbook" element={<MainMacBook />} />
         <Route path="/acc" element={<MainAcc />} />
         <Route path="/login" element={<MainLogin />} />
+        <Route path="/signup" element={<MainSignUp />} />
       </Routes>
       <MainFooter />
     </>

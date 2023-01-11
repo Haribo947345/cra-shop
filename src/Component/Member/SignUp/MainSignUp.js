@@ -1,20 +1,21 @@
 import axios from "axios";
 import { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 
-function MainLogin() {
-  const navigate = useNavigate();
+function MainSignUp() {
   // 이메일, 비밀번호 저장 State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
   // 이메일, 비밀번호 에러메시지 State
   const [emailMessage, setEmailMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
+  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
 
   // 이메일 비밀번호 입력확인 State
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
+  const [ispasswordConfirm, setIsPasswordConfirm] = useState(false);
 
   // 이메일 관련 유효성 검사 및 이메일 저장
   const onChangeEmail = useCallback((e) => {
@@ -47,11 +48,27 @@ function MainLogin() {
     }
   }, []);
 
+  const onChangePasswordConfirm = useCallback(
+    (e) => {
+      const passwordConfirmCurrent = e.target.value;
+      setPasswordConfirm(passwordConfirmCurrent);
+
+      if (password === passwordConfirmCurrent) {
+        setPasswordConfirmMessage("비밀번호가 일치합니다.");
+        setIsPasswordConfirm(true);
+      } else {
+        setPasswordConfirmMessage("비밀번호가 맞지 않습니다.");
+        setIsPasswordConfirm(false);
+      }
+    },
+    [password]
+  );
+
   // 로그인 관련 Axios
-  const PostLogin = async () => {
+  const PostSignUp = async () => {
     try {
       const req = await axios.post(
-        `${process.env.REACT_APP_LOGIN}${process.env.REACT_APP_API_KEY}`,
+        `${process.env.REACT_APP_SIGNUP}${process.env.REACT_APP_API_KEY}`,
         { email: email, password: password }
       );
       console.log(req);
@@ -65,7 +82,7 @@ function MainLogin() {
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
         <div className="lg:w-1/2 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-0">
           <h2 className="text-white text-lg font-medium title-font mb-5">
-            로그인
+            회원가입
           </h2>
           <div className="relative mb-4">
             <label className="leading-7 text-sm text-gray-400">이메일</label>
@@ -105,33 +122,45 @@ function MainLogin() {
               </span>
             )}
           </div>
+          <div className="relative mb-4">
+            <label className="leading-7 text-sm text-gray-400">
+              비밀번호 확인
+            </label>
+            <input
+              type="password"
+              id="passwordConfirm"
+              name="passwordConfirm"
+              onChange={onChangePasswordConfirm}
+              className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+            {passwordConfirm.length > 0 && (
+              <span
+                className={`opacity-70 ${
+                  ispasswordConfirm ? "text-green-700" : "text-red-800"
+                }`}
+              >
+                {passwordConfirmMessage}
+              </span>
+            )}
+          </div>
           <button
-            onClick={PostLogin}
+            onClick={PostSignUp}
             className={`mt-5 ${
-              !(isEmail && isPassword)
+              !(isEmail && isPassword && ispasswordConfirm)
                 ? "text-white bg-gray-600 border-0 py-2 px-8 focus:outline-none rounded text-lg"
                 : "text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
             }`}
-            disabled={!(isEmail && isPassword)}
-          >
-            로그인
-          </button>
-          <p className="text-xs font-medium mt-7 text-center">
-            이메일, 비밀번호를 작성해야 버튼이 활성화 됩니다!
-          </p>
-          <button className="mt-5 text-white bg-indigo-700 border-0 py-2 px-8 focus:outline-none rounded text-sm">
-            비밀번호 찾기
-          </button>
-          <button
-            onClick={() => navigate("/signup")}
-            className="mt-5 text-white bg-indigo-700 border-0 py-2 px-8 focus:outline-none rounded text-sm"
+            disabled={!(isEmail && isPassword && ispasswordConfirm)}
           >
             회원가입
           </button>
+          <p className="text-xs font-medium mt-7 text-center">
+            회원가입 양식을 반드시 지켜주세요!
+          </p>
         </div>
       </div>
     </section>
   );
 }
 
-export default MainLogin;
+export default MainSignUp;
