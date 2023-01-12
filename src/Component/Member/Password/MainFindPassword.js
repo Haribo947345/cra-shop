@@ -45,6 +45,13 @@ function MainLogin() {
     }
   };
 
+  // 엔터키 입력 이벤트
+  const handlerOnKeyDown = (e) => {
+    if (isEmail && e.key === "Enter") {
+      PostFindPassword();
+    }
+  };
+
   return (
     <section className="text-gray-400 bg-gray-900 mt-10 body-font">
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
@@ -59,6 +66,7 @@ function MainLogin() {
               id="text"
               name="email"
               onChange={onChangeEmail}
+              onKeyDown={handlerOnKeyDown}
               className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
             {email.length > 0 && (
