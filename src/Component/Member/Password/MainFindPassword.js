@@ -1,14 +1,10 @@
 import axios from "axios";
-import { useState, useCallback, useContext } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../../../Store/AuthContext";
 
 function MainLogin() {
   // 네비게이션
   const navigate = useNavigate();
-
-  // 컨텍스트 관련
-  const authCtx = useContext(AuthContext);
 
   // 이메일, 비밀번호 저장 State
   const [email, setEmail] = useState("");
@@ -36,13 +32,12 @@ function MainLogin() {
   }, []);
 
   // 이메일 전송 관련 Axios
-  const PostLogin = async () => {
+  const PostFindPassword = async () => {
     try {
-      const req = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_FINDPASSWORD}${process.env.REACT_APP_API_KEY}`,
         { requestType: "PASSWORD_RESET", email: email }
       );
-      authCtx.login(req.data.idToken);
       alert("이메일 전송에 성공하였습니다.");
     } catch (e) {
       console.log(e);
@@ -77,7 +72,7 @@ function MainLogin() {
             )}
           </div>
           <button
-            onClick={PostLogin}
+            onClick={PostFindPassword}
             className={`mt-5 ${
               !isEmail
                 ? "text-white bg-gray-600 border-0 py-2 px-8 focus:outline-none rounded text-lg"
