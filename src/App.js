@@ -12,6 +12,7 @@ import MainMacBook from "./Component/MacBook/MainMacBook";
 import MainAcc from "./Component/Acc/MainAcc";
 import MainLogin from "./Component/Member/Login/MainLogin";
 import MainSignUp from "./Component/Member/SignUp/MainSignUp";
+import MainFindPassword from "./Component/Member/Password/MainFindPassword";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/acc" element={<MainAcc />} />
         <Route path="/login" element={<MainLogin />} />
         <Route path="/signup" element={<MainSignUp />} />
+        <Route path="/findpassword" element={<MainFindPassword />} />
       </Routes>
       <MainFooter />
     </>

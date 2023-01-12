@@ -12,15 +12,12 @@ function MainLogin() {
 
   // 이메일, 비밀번호 저장 State
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   // 이메일, 비밀번호 에러메시지 State
   const [emailMessage, setEmailMessage] = useState("");
-  const [passwordMessage, setPasswordMessage] = useState("");
 
   // 이메일 비밀번호 입력확인 State
   const [isEmail, setIsEmail] = useState(false);
-  const [isPassword, setIsPassword] = useState(false);
 
   // 이메일 관련 유효성 검사 및 이메일 저장
   const onChangeEmail = useCallback((e) => {
@@ -38,33 +35,18 @@ function MainLogin() {
     }
   }, []);
 
-  // 비밀번호 관련 유효성 검사 및 비밀번호 저장
-  const onChangePassword = useCallback((e) => {
-    const passwordCurrent = e.target.value;
-    setPassword(passwordCurrent);
-    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-
-    if (!passwordRegex.test(passwordCurrent)) {
-      setPasswordMessage("영문, 숫자 8자리 이상 입력해주세요!");
-      setIsPassword(false);
-    } else {
-      setPasswordMessage("올바른 비밀번호 형식입니다!");
-      setIsPassword(true);
-    }
-  }, []);
-
-  // 로그인 관련 Axios
+  // 이메일 전송 관련 Axios
   const PostLogin = async () => {
     try {
       const req = await axios.post(
-        `${process.env.REACT_APP_LOGIN}${process.env.REACT_APP_API_KEY}`,
-        { email: email, password: password }
+        `${process.env.REACT_APP_FINDPASSWORD}${process.env.REACT_APP_API_KEY}`,
+        { requestType: "PASSWORD_RESET", email: email }
       );
       authCtx.login(req.data.idToken);
-      alert("로그인이 완료되었습니다.");
-      navigate("/");
+      alert("이메일 전송에 성공하였습니다.");
     } catch (e) {
-      alert("로그인에 실패하였습니다.");
+      console.log(e);
+      alert("이메일 전송에 실패하였습니다.");
     }
   };
 
@@ -73,7 +55,7 @@ function MainLogin() {
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
         <div className="lg:w-1/2 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-0">
           <h2 className="text-white text-lg font-medium title-font mb-5">
-            로그인
+            비밀번호 재설정
           </h2>
           <div className="relative mb-4">
             <label className="leading-7 text-sm text-gray-400">이메일</label>
@@ -94,50 +76,25 @@ function MainLogin() {
               </span>
             )}
           </div>
-          <div className="relative mb-4">
-            <label className="leading-7 text-sm text-gray-400">비밀번호</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              onChange={onChangePassword}
-              className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-            {password.length > 0 && (
-              <span
-                className={`opacity-70 ${
-                  isPassword ? "text-green-700" : "text-red-800"
-                }`}
-              >
-                {passwordMessage}
-              </span>
-            )}
-          </div>
           <button
             onClick={PostLogin}
             className={`mt-5 ${
-              !(isEmail && isPassword)
+              !isEmail
                 ? "text-white bg-gray-600 border-0 py-2 px-8 focus:outline-none rounded text-lg"
                 : "text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
             }`}
-            disabled={!(isEmail && isPassword)}
+            disabled={!isEmail}
           >
-            로그인
+            이메일 전송
           </button>
           <p className="text-xs font-medium mt-7 text-center">
-            이메일, 비밀번호를 작성해야 버튼이 활성화 됩니다!
+            이메일 작성 후, 전송 버튼 클릭시 재설정 이메일이 전송됩니다!
           </p>
           <button
-            onClick={() => navigate("/findpassword")}
+            onClick={() => navigate("/login")}
             className="mt-5 text-white bg-indigo-700 border-0 py-2 px-8 focus:outline-none rounded text-sm"
           >
-            비밀번호 재설정
-          </button>
-          <button
-            onClick={() => navigate("/signup")}
-            className="mt-5 text-white bg-indigo-700 border-0 py-2 px-8 focus:outline-none rounded text-sm"
-          >
-            회원가입
+            로그인하기
           </button>
         </div>
       </div>
