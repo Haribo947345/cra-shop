@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 // 메인페이지
 import MainHeader from "./Component/Home/MainHeader";
-import MainHome from "./Component/Home/MainHome";
+import Home from "./Pages/Home";
 import MainFooter from "./Component/Home/MainFooter";
 
 // 메뉴진입
@@ -19,7 +19,7 @@ function App() {
     <>
       <MainHeader />
       <Routes>
-        <Route path="/" element={<MainHome />} />
+        <Route path="/" element={<Home />} />
         <Route path="/iphone" element={<MainiPhone />} />
         <Route path="/ipad" element={<MainiPad />} />
         <Route path="/macbook" element={<MainMacBook />} />
