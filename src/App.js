@@ -1,11 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
-// 메인페이지
-import MainHeader from "./Component/Home/MainHeader";
+// Pages
 import Home from "./Pages/Home";
-import MainFooter from "./Component/Home/MainFooter";
-
-// 메뉴진입
 import IPhoneList from "./Pages/iPhoneList";
 import IPadList from "./Pages/iPadList";
 import MacBookList from "./Pages/MacBookList";
@@ -13,6 +9,10 @@ import AccList from "./Pages/AccList";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import FindPassword from "./Pages/FindPassword";
+
+// Component
+import MainHeader from "./Component/Home/MainHeader";
+import MainFooter from "./Component/Home/MainFooter";
 
 function App() {
   return (
