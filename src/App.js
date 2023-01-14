@@ -6,13 +6,13 @@ import Home from "./Pages/Home";
 import MainFooter from "./Component/Home/MainFooter";
 
 // 메뉴진입
-import MainiPhone from "./Component/iPhone/MainiPhone";
-import MainiPad from "./Component/iPad/MainiPad";
-import MainMacBook from "./Component/MacBook/MainMacBook";
-import MainAcc from "./Component/Acc/MainAcc";
-import MainLogin from "./Component/Member/Login/MainLogin";
-import MainSignUp from "./Component/Member/SignUp/MainSignUp";
-import MainFindPassword from "./Component/Member/Password/MainFindPassword";
+import IPhoneList from "./Pages/iPhoneList";
+import IPadList from "./Pages/iPadList";
+import MacBookList from "./Pages/MacBookList";
+import AccList from "./Pages/AccList";
+import Login from "./Pages/Login";
+import SignUp from "./Pages/SignUp";
+import FindPassword from "./Pages/FindPassword";
 
 function App() {
   return (
@@ -20,13 +20,13 @@ function App() {
       <MainHeader />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/iphone" element={<MainiPhone />} />
-        <Route path="/ipad" element={<MainiPad />} />
-        <Route path="/macbook" element={<MainMacBook />} />
-        <Route path="/acc" element={<MainAcc />} />
-        <Route path="/login" element={<MainLogin />} />
-        <Route path="/signup" element={<MainSignUp />} />
-        <Route path="/findpassword" element={<MainFindPassword />} />
+        <Route path="/iphone" element={<IPhoneList />} />
+        <Route path="/ipad" element={<IPadList />} />
+        <Route path="/macbook" element={<MacBookList />} />
+        <Route path="/acc" element={<AccList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/findpassword" element={<FindPassword />} />
       </Routes>
       <MainFooter />
     </>
