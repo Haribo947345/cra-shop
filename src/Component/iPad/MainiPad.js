@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { MainiPadData } from "../../Data/Data";
 
 function MainiPad() {
+  const navigate = useNavigate();
   return (
     <section className="text-gray-400 bg-gray-900 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -8,7 +10,11 @@ function MainiPad() {
           {MainiPadData &&
             MainiPadData.map((el, idx) => {
               return (
-                <div key={idx} className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40">
+                <div
+                  key={idx}
+                  onClick={() => navigate(`${el.ID}`)}
+                  className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40"
+                >
                   <img
                     alt="ecommerce"
                     className="object-contain object-center w-full h-full block"

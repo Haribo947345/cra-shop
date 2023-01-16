@@ -85,14 +85,14 @@ export const MainiPhoneData = [
 
 export const MainiPadData = [
   {
-    ID: 1,
+    ID: 3,
     CATEGORY: "iPad",
     NAME: "iPad Air",
     PRICE: "₩929,000",
     IMG: IPadAir,
   },
   {
-    ID: 2,
+    ID: 4,
     CATEGORY: "iPad",
     NAME: "iPad Pro",
     PRICE: "₩1,729,000",
@@ -102,14 +102,14 @@ export const MainiPadData = [
 
 export const MainMacBookData = [
   {
-    ID: 1,
+    ID: 5,
     CATEGORY: "MacBook",
     NAME: "MacBook Air with M2 chip",
     PRICE: "₩1,690,000",
     IMG: MacBookAir,
   },
   {
-    ID: 2,
+    ID: 6,
     CATEGORY: "MacBook",
     NAME: "MacBook Pro with M1 chip",
     PRICE: "₩3,360,000",
@@ -119,14 +119,14 @@ export const MainMacBookData = [
 
 export const MainAccData = [
   {
-    ID: 1,
+    ID: 7,
     CATEGORY: "Airpods",
     NAME: "Airpods Max",
     PRICE: "₩769,000",
     IMG: AirpodsMax,
   },
   {
-    ID: 2,
+    ID: 8,
     CATEGORY: "Airpods",
     NAME: "Airpods Pro",
     PRICE: "₩359,000",
