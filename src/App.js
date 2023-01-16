@@ -7,6 +7,7 @@ import IPadList from "./Pages/iPadList";
 import MacBookList from "./Pages/MacBookList";
 import AccList from "./Pages/AccList";
 import ItemInfo from "./Pages/ItemInfo";
+import BuyItem from "./Pages/BuyItem";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import FindPassword from "./Pages/FindPassword";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/macbook/:id" element={<ItemInfo />} />
         <Route path="/acc" element={<AccList />} />
         <Route path="/acc/:id" element={<ItemInfo />} />
+        <Route path="/buyitem/:id" element={<BuyItem />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/findpassword" element={<FindPassword />} />

@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
 
 function MainInfo() {
+  const navigate = useNavigate();
   // URL주소 ID값 가져오기
   const { id } = useParams();
 
@@ -140,7 +141,10 @@ function MainInfo() {
               <span className="title-font font-medium text-2xl text-white">
                 {InfoPRICE}
               </span>
-              <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+              <button
+                onClick={() => navigate(`/buyitem/${id}`)}
+                className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+              >
                 구매하기
               </button>
             </div>
