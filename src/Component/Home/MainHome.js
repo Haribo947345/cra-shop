@@ -13,7 +13,7 @@ function MainHome() {
                 <div
                   key={idx}
                   onClick={() => navigate(`${el.CATEGORY}/${el.ID}`)}
-                  className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40"
+                  className="lg:w-1/4 md:w-1/2 p-4 w-full mb-40 cursor-pointer"
                 >
                   <img
                     alt="ecommerce"

@@ -52,14 +52,14 @@ export const MainHomeData = [
   },
   {
     ID: 7,
-    CATEGORY: "Airpods",
+    CATEGORY: "Acc",
     NAME: "Airpods Max",
     PRICE: "₩769,000",
     IMG: AirpodsMax,
   },
   {
     ID: 8,
-    CATEGORY: "Airpods",
+    CATEGORY: "Acc",
     NAME: "Airpods Pro",
     PRICE: "₩359,000",
     IMG: AirpodsPro,
@@ -120,14 +120,14 @@ export const MainMacBookData = [
 export const MainAccData = [
   {
     ID: 7,
-    CATEGORY: "Airpods",
+    CATEGORY: "Acc",
     NAME: "Airpods Max",
     PRICE: "₩769,000",
     IMG: AirpodsMax,
   },
   {
     ID: 8,
-    CATEGORY: "Airpods",
+    CATEGORY: "Acc",
     NAME: "Airpods Pro",
     PRICE: "₩359,000",
     IMG: AirpodsPro,
