@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
 
-function InfoiPhone() {
+function MainInfo() {
   // URL주소 ID값 가져오기
   const { id } = useParams();
 
   // 더미데이터 ID Number로 감싸기 -> 감싸지 않을경우 string 타입으로 false 출력
-  const iPhoneID = Number(id);
+  const DataID = Number(id);
 
   // 더미데이터 Filter
-  const Info = MainHomeData.filter((iPhone) => iPhone.ID === iPhoneID);
+  const Info = MainHomeData.filter((Data) => Data.ID === DataID);
 
   // 필터된 더미데이터 정보 MAP
   const InfoIMG = Info.map((el) => el.IMG);
@@ -151,4 +151,4 @@ function InfoiPhone() {
   );
 }
 
-export default InfoiPhone;
+export default MainInfo;
