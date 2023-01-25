@@ -15,6 +15,7 @@ import FindPassword from "./Pages/FindPassword";
 // Component
 import MainHeader from "./Component/Home/MainHeader";
 import MainFooter from "./Component/Home/MainFooter";
+import Basket from "./Pages/Basket";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/acc" element={<AccList />} />
         <Route path="/acc/:id" element={<ItemInfo />} />
         <Route path="/buyitem/:id" element={<BuyItem />} />
+        <Route path="/basket" element={<Basket />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/findpassword" element={<FindPassword />} />
