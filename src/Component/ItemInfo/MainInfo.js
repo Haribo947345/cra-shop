@@ -174,7 +174,7 @@ function MainInfo() {
                   <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-800 mb-5"></div>
                   <div className="flex">
                     <span className="title-font font-medium text-2xl text-white">
-                      {el.PRICE}
+                      ₩{el.PRICE}
                     </span>
                     <button
                       onClick={onClickBasket(el, key)}

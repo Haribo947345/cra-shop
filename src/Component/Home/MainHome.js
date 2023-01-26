@@ -28,7 +28,7 @@ function MainHome() {
                     <h2 className="text-white title-font text-lg font-medium">
                       {el.NAME}
                     </h2>
-                    <p className="mt-1">{el.PRICE}</p>
+                    <p className="mt-1">₩{el.PRICE}</p>
                   </div>
                 </div>
               );
