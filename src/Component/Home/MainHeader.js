@@ -44,6 +44,12 @@ function MainHeader() {
           >
             악세사리
           </span>
+          <span
+            onClick={() => navigate("baskets")}
+            className="mr-5 hover:text-white cursor-pointer"
+          >
+            장바구니
+          </span>
         </nav>
         {isLoggedIn ? (
           <button
