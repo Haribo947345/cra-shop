@@ -1,9 +1,12 @@
 import { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
 import AuthContext from "../../Store/AuthContext";
+import { ChangeBaskets } from "../../Store/store";
 
 function MainInfo() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   // 로그인 확인하기
   const authCtx = useContext(AuthContext);
@@ -32,6 +35,7 @@ function MainInfo() {
       }
       Baskets.push(el);
       localStorage.setItem("baskets", JSON.stringify(Baskets));
+      dispatch(ChangeBaskets(Baskets));
       navigate("/baskets");
     } else {
       alert("로그인이 필요합니다.");
