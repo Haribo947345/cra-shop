@@ -1,8 +1,14 @@
+import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
+import AuthContext from "../../Store/AuthContext";
 
 function MainInfo() {
   const navigate = useNavigate();
+  // 로그인 확인하기
+  const authCtx = useContext(AuthContext);
+  const isLogin = authCtx.isLoggedIn;
+
   // URL주소 ID값 가져오기
   const { id } = useParams();
 
@@ -12,42 +18,24 @@ function MainInfo() {
   // 더미데이터 Filter
   const Info = MainHomeData.filter((Data) => Data.ID === DataID);
 
-  // 필터된 더미데이터 정보 MAP
-  // const InfoIMG = Info.map((el) => el.IMG);
-  // const InfoCATEGORY = Info.map((el) => el.CATEGORY);
-  // const InfoNAME = Info.map((el) => el.NAME);
-  // const InfoPRICE = Info.map((el) => el.PRICE);
-
-  // const abc = {
-  //   ID: DataID,
-  //   CATEGORY: InfoCATEGORY,
-  //   NAME: InfoNAME,
-  //   InfoPRICE: InfoPRICE,
-  // };
-
-  // const BasketonClickHandler = () => {
-  //   const a = JSON.parse(localStorage.getItem("baskets")) || [];
-  //   const b = a.ID;
-  //   if (b === abc.ID) {
-  //     alert("이미 장바구니에 넣으셨습니다.");
-  //   } else {
-  //     localStorage.setItem("baskets", JSON.stringify(abc));
-  //   }
-  // };
-
+  // 장바구니 추가하기
   const onClickBasket = (el) => () => {
-    const Baskets = JSON.parse(localStorage.getItem("baskets")) || [];
-    let boolean = false;
-    Baskets.forEach((BasketsEl) => {
-      if (el.ID === BasketsEl.ID) boolean = true;
-    });
-    if (boolean) {
-      alert("이미 장바구니에 존재하는 상품입니다!");
-      return;
+    if (isLogin) {
+      const Baskets = JSON.parse(localStorage.getItem("baskets")) || [];
+      let boolean = false;
+      Baskets.forEach((BasketsEl) => {
+        if (el.ID === BasketsEl.ID) boolean = true;
+      });
+      if (boolean) {
+        alert("이미 장바구니에 존재하는 상품입니다!");
+        return;
+      }
+      Baskets.push(el);
+      localStorage.setItem("baskets", JSON.stringify(Baskets));
+      navigate("/baskets");
+    } else {
+      alert("로그인이 필요합니다.");
     }
-    Baskets.push(el);
-
-    localStorage.setItem("baskets", JSON.stringify(Baskets));
   };
 
   return (
