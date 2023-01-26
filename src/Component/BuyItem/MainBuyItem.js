@@ -14,11 +14,12 @@ function MainBuyItem() {
   const InfoCATEGORY = Info.map((el) => el.CATEGORY);
   const InfoNAME = Info.map((el) => el.NAME);
   const InfoPRICE = Info.map((el) => el.PRICE);
+
   return (
     <section className="text-gray-400 bg-gray-900 body-font">
       <div className="lg:w-1/3 md:w-1/2 bg-gray-700 shadow-md rounded-2xl  p-8 flex flex-col m-auto w-3/4 mt-20 mb-20">
         <h1 className="text-white text-3xl title-font font-medium mb-7">
-          구매하기
+          주문하기
         </h1>
         <div className="mb-4">
           <label className="leading-7 text-sm text-gray-400">카테고리</label>
@@ -94,7 +95,7 @@ function MainBuyItem() {
           />
         </div>
         <button className="mt-5 flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-          구매완료
+          주문완료
         </button>
       </div>
     </section>
