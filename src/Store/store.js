@@ -1,10 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const user = createSlice({
-  name: "user",
-  initialState: "kim",
-});
-
 const baskets = createSlice({
   name: "baskets",
   initialState: JSON.parse(localStorage.getItem("baskets")),
@@ -13,7 +8,7 @@ const baskets = createSlice({
       return a.payload;
     },
     DeleteBaskets(state, a) {
-      return localStorage.removeItem("baskets");
+      return state === null;
     },
   },
 });
@@ -22,7 +17,6 @@ export const { ChangeBaskets, DeleteBaskets } = baskets.actions;
 
 export default configureStore({
   reducer: {
-    user: user.reducer,
     baskets: baskets.reducer,
   },
 });

@@ -55,7 +55,8 @@ function MainHeader() {
           <button
             onClick={() => {
               authCtx.logout();
-              window.location.replace("/");
+              // window.location.replace("/");
+              navigate("/");
             }}
             className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
           >

@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DeleteBaskets } from "../../Store/store";
 
 function MainBasket() {
   const dispatch = useDispatch();
   const basketsData = useSelector((state) => state.baskets);
+
+  const [dataItem, setDataItem] = useState(basketsData);
+
+  const onClickBasket = () => {
+    const deleteBaskets = localStorage.removeItem("baskets");
+    setDataItem(deleteBaskets);
+    dispatch(DeleteBaskets(dataItem));
+  };
 
   return (
     <section className="text-gray-400 bg-gray-900 body-font">
@@ -13,7 +22,7 @@ function MainBasket() {
         </h1>
         {basketsData ? (
           <button
-            onClick={() => dispatch(DeleteBaskets())}
+            onClick={onClickBasket}
             className="flex ml-auto mb-5 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
           >
             전체 삭제하기
