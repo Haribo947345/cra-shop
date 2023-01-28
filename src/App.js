@@ -9,6 +9,7 @@ import AccList from "./Pages/AccList";
 import ItemInfo from "./Pages/ItemInfo";
 import BuyItem from "./Pages/BuyItem";
 import Basket from "./Pages/Basket";
+import BasketsBuyItem from "./Pages/BasketsBuyItem";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import FindPassword from "./Pages/FindPassword";
@@ -16,7 +17,6 @@ import FindPassword from "./Pages/FindPassword";
 // Component
 import MainHeader from "./Component/Home/MainHeader";
 import MainFooter from "./Component/Home/MainFooter";
-import BasketsBuyItem from "./Component/BuyItem/BasketsBuyItem";
 
 function App() {
   return (
