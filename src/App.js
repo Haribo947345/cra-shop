@@ -8,6 +8,7 @@ import MacBookList from "./Pages/MacBookList";
 import AccList from "./Pages/AccList";
 import ItemInfo from "./Pages/ItemInfo";
 import BuyItem from "./Pages/BuyItem";
+import Basket from "./Pages/Basket";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import FindPassword from "./Pages/FindPassword";
@@ -15,7 +16,7 @@ import FindPassword from "./Pages/FindPassword";
 // Component
 import MainHeader from "./Component/Home/MainHeader";
 import MainFooter from "./Component/Home/MainFooter";
-import Basket from "./Pages/Basket";
+import BasketsBuyItem from "./Component/BuyItem/BasketsBuyItem";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/acc/:id" element={<ItemInfo />} />
         <Route path="/buyitem/:id" element={<BuyItem />} />
         <Route path="/baskets" element={<Basket />} />
+        <Route path="/basketsbuyitem" element={<BasketsBuyItem />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/findpassword" element={<FindPassword />} />

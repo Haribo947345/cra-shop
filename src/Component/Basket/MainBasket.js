@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { DeleteBaskets } from "../../Store/store";
 
 function MainBasket() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const basketsData = useSelector((state) => state.baskets);
 
@@ -12,6 +14,10 @@ function MainBasket() {
     const deleteBaskets = localStorage.removeItem("baskets");
     setDataItem(deleteBaskets);
     dispatch(DeleteBaskets(dataItem));
+  };
+
+  const onClickBuyItem = () => {
+    navigate("/basketsbuyitem");
   };
 
   return (
@@ -46,7 +52,10 @@ function MainBasket() {
             </h2>
           </div>
         </div>
-        <button className="flex ml-auto mr-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+        <button
+          onClick={onClickBuyItem}
+          className="flex ml-auto mr-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+        >
           구매하기
         </button>
       </div>

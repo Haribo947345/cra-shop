@@ -42,6 +42,14 @@ function MainInfo() {
     }
   };
 
+  const onClickBuyItem = () => {
+    if (isLogin) {
+      navigate(`/buyitem/${id}`);
+    } else {
+      alert("로그인이 필요합니다.");
+    }
+  };
+
   return (
     <section className="text-gray-400 bg-gray-900 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
@@ -175,7 +183,7 @@ function MainInfo() {
                       장바구니
                     </button>
                     <button
-                      onClick={() => navigate(`/buyitem/${id}`)}
+                      onClick={onClickBuyItem}
                       className="flex ml-3  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
                     >
                       주문하기
