@@ -16,10 +16,6 @@ function MainBasket() {
     dispatch(DeleteBaskets(dataItem));
   };
 
-  const onClickBuyItem = () => {
-    navigate("/basketsbuyitem");
-  };
-
   return (
     <section className="text-gray-400 bg-gray-900 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -53,7 +49,9 @@ function MainBasket() {
           </div>
         </div>
         <button
-          onClick={onClickBuyItem}
+          onClick={() => {
+            navigate("/basketsbuyitem");
+          }}
           className="flex ml-auto mr-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
         >
           구매하기
