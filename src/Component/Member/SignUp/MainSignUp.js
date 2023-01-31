@@ -90,7 +90,7 @@ function MainSignUp() {
   };
 
   return (
-    <section className="text-gray-400 bg-gray-900 mt-10 body-font">
+    <section className="text-gray-400 bg-gray-900 mt-10 body-font min-h-full pb-24">
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
         <div className="lg:w-1/2 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-0">
           <h2 className="text-white text-lg font-medium title-font mb-5">

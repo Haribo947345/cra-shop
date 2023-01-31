@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+#root {
+  height: 100%;
+}
+
+body,
+html {
+  height: 100%;
   background-color: rgb(17, 24, 39);
 }
 

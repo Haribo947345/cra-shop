@@ -51,7 +51,7 @@ function MainInfo() {
   };
 
   return (
-    <section className="text-gray-400 bg-gray-900 body-font overflow-hidden">
+    <section className="text-gray-400 bg-gray-900 body-font overflow-hidden min-h-full pb-24">
       <div className="container px-5 py-24 mx-auto">
         {Info &&
           Info.map((el, key) => {

@@ -4,7 +4,7 @@ import { MainiPadData } from "../../Data/Data";
 function MainiPad() {
   const navigate = useNavigate();
   return (
-    <section className="text-gray-400 bg-gray-900 body-font">
+    <section className="text-gray-400 bg-gray-900 body-font min-h-full pb-24">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           {MainiPadData &&

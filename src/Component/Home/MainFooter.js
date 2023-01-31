@@ -1,6 +1,6 @@
 function MainFooter() {
   return (
-    <footer className="text-gray-400 bg-slate-800 bottom-0 w-full">
+    <footer className="text-gray-400 bg-slate-800 md:h-24 w-full relative -translate-y-full">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <div className="flex title-font font-medium items-center md:justify-start justify-center text-white">
           <span className="ml-3 text-xl">동글쇼핑</span>
