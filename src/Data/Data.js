@@ -87,7 +87,7 @@ export const MainHomeData = [
   {
     ID: 10,
     CATEGORY: "iPad",
-    NAME: "iPad Pro",
+    NAME: "iPad Mini",
     PRICE: "769,000",
     IMG: iPadMini,
   },
@@ -191,7 +191,7 @@ export const MainiPadData = [
   {
     ID: 10,
     CATEGORY: "iPad",
-    NAME: "iPad Pro",
+    NAME: "iPad Mini",
     PRICE: "769,000",
     IMG: iPadMini,
   },
