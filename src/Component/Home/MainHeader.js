@@ -10,29 +10,30 @@ function MainHeader() {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
 
-  const [isSticky, setSticky] = useState(false);
+  // const [isSticky, setSticky] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 0) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
-    });
-    return () => {
-      window.removeEventListener("scroll", () => {});
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.pageYOffset > 0) {
+  //       setSticky(true);
+  //     } else {
+  //       setSticky(false);
+  //     }
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", () => {});
+  //   };
+  // }, []);
 
   return (
-    <header
-      className={`${
-        isSticky
-          ? "fixed top-0 text-gray-400 bg-slate-800 body-font w-full"
-          : "text-gray-400 bg-slate-800 body-font top-0 w-full"
-      }`}
-    >
+    // <header
+    //   className={`${
+    //     isSticky
+    //       ? "fixed top-0 text-gray-400 bg-slate-800 body-font w-full"
+    //       : "text-gray-400 bg-slate-800 body-font top-0 w-full"
+    //   }`}
+    // >
+    <header className="text-gray-400 bg-slate-800 body-font top-0 w-full">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div
           onClick={() => navigate("/")}

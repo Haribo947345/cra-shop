@@ -16,8 +16,8 @@ function MainBuyItem() {
   const InfoPRICE = Info.map((el) => el.PRICE);
 
   return (
-    <section className="text-gray-400 bg-gray-900 body-font">
-      <div className="lg:w-1/3 md:w-1/2 bg-gray-700 shadow-md rounded-2xl  p-8 flex flex-col m-auto w-3/4 mt-20 mb-20">
+    <section className="flex text-gray-400 bg-gray-900 body-font min-h-full pb-24">
+      <div className="lg:w-1/3 md:w-1/2 bg-gray-700 shadow-md rounded-2xl p-8 flex flex-col m-auto w-3/4 justify-center">
         <h1 className="text-white text-3xl title-font font-medium mb-7">
           주문하기
         </h1>
