@@ -1,14 +1,14 @@
 import axios from "axios";
-import { useState, useCallback, useContext } from "react";
+import { useState, useCallback } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../../../Store/AuthContext";
+import { login } from "../../../Store/store";
 
 function MainLogin() {
   // 네비게이션
   const navigate = useNavigate();
 
-  // 컨텍스트 관련
-  const authCtx = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   // 이메일, 비밀번호 저장 State
   const [email, setEmail] = useState("");
@@ -60,7 +60,9 @@ function MainLogin() {
         `${process.env.REACT_APP_LOGIN}${process.env.REACT_APP_API_KEY}`,
         { email: email, password: password }
       );
-      authCtx.login(req.data.idToken);
+      console.log(req);
+      localStorage.setItem("user", req.data.idToken);
+      dispatch(login(req.data.idToken));
       alert("로그인이 완료되었습니다.");
       navigate("/");
     } catch (e) {

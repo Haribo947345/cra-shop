@@ -1,16 +1,14 @@
-import { useContext } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
-import AuthContext from "../../Store/AuthContext";
 import { ChangeBaskets } from "../../Store/store";
 
 function MainInfo() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // 로그인 확인하기
-  const authCtx = useContext(AuthContext);
-  const isLogin = authCtx.isLoggedIn;
+
+  const user = useSelector((state) => state.islogin.user);
 
   // URL주소 ID값 가져오기
   const { id } = useParams();
@@ -23,7 +21,7 @@ function MainInfo() {
 
   // 장바구니 추가하기
   const onClickBasket = (el) => () => {
-    if (isLogin) {
+    if (user) {
       const Baskets = JSON.parse(localStorage.getItem("baskets")) || [];
       let boolean = false;
       Baskets.forEach((BasketsEl) => {
@@ -43,7 +41,7 @@ function MainInfo() {
   };
 
   const onClickBuyItem = () => {
-    if (isLogin) {
+    if (user) {
       navigate(`/buyitem/${id}`);
     } else {
       alert("로그인이 필요합니다.");

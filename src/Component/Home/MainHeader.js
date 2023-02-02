@@ -1,38 +1,21 @@
-import { useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../../Store/AuthContext";
+import { logout } from "../../Store/store";
 
 function MainHeader() {
   // 네비게이션
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // 로그인 확인하기
-  const authCtx = useContext(AuthContext);
-  const isLoggedIn = authCtx.isLoggedIn;
+  const user = useSelector((state) => state.islogin.user);
 
-  // const [isSticky, setSticky] = useState(false);
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (window.pageYOffset > 0) {
-  //       setSticky(true);
-  //     } else {
-  //       setSticky(false);
-  //     }
-  //   });
-  //   return () => {
-  //     window.removeEventListener("scroll", () => {});
-  //   };
-  // }, []);
+  const logoutHandler = () => {
+    localStorage.removeItem("user");
+    dispatch(logout());
+    navigate("/");
+  };
 
   return (
-    // <header
-    //   className={`${
-    //     isSticky
-    //       ? "fixed top-0 text-gray-400 bg-slate-800 body-font w-full"
-    //       : "text-gray-400 bg-slate-800 body-font top-0 w-full"
-    //   }`}
-    // >
     <header className="text-gray-400 bg-slate-800 body-font top-0 w-full">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div
@@ -66,7 +49,7 @@ function MainHeader() {
           >
             악세사리
           </span>
-          {isLoggedIn ? (
+          {user ? (
             <span
               onClick={() => navigate("baskets")}
               className="mr-5 hover:text-white cursor-pointer"
@@ -75,13 +58,9 @@ function MainHeader() {
             </span>
           ) : null}
         </nav>
-        {isLoggedIn ? (
+        {user ? (
           <button
-            onClick={() => {
-              authCtx.logout();
-              // window.location.replace("/");
-              navigate("/");
-            }}
+            onClick={logoutHandler}
             className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"
           >
             로그아웃
