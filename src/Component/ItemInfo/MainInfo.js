@@ -8,7 +8,7 @@ function MainInfo() {
   const navigate = useNavigate();
   // 로그인 확인하기
 
-  const user = useSelector((state) => state.islogin.user);
+  const isLoggedIn = useSelector((state) => state.isLoggedIn.user);
 
   // URL주소 ID값 가져오기
   const { id } = useParams();
@@ -21,7 +21,7 @@ function MainInfo() {
 
   // 장바구니 추가하기
   const onClickBasket = (el) => () => {
-    if (user) {
+    if (isLoggedIn) {
       const Baskets = JSON.parse(localStorage.getItem("baskets")) || [];
       let boolean = false;
       Baskets.forEach((BasketsEl) => {
@@ -41,7 +41,7 @@ function MainInfo() {
   };
 
   const onClickBuyItem = () => {
-    if (user) {
+    if (isLoggedIn) {
       navigate(`/buyitem/${id}`);
     } else {
       alert("로그인이 필요합니다.");

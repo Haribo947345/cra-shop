@@ -13,8 +13,8 @@ const baskets = createSlice({
   },
 });
 
-const loginSlice = createSlice({
-  name: "login",
+const memberSlice = createSlice({
+  name: "member",
   initialState: {
     user: null,
     isAuthenticated: false,
@@ -32,11 +32,11 @@ const loginSlice = createSlice({
 });
 
 export const { ChangeBaskets, DeleteBaskets } = baskets.actions;
-export const { login, logout } = loginSlice.actions;
+export const { login, logout } = memberSlice.actions;
 
 export default configureStore({
   reducer: {
     baskets: baskets.reducer,
-    islogin: loginSlice.reducer,
+    isLoggedIn: memberSlice.reducer,
   },
 });

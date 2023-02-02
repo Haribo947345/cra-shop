@@ -7,7 +7,7 @@ function MainHeader() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.islogin.user);
+  const isLoggedIn = useSelector((state) => state.isLoggedIn.user);
 
   const logoutHandler = () => {
     localStorage.removeItem("user");
@@ -49,7 +49,7 @@ function MainHeader() {
           >
             악세사리
           </span>
-          {user ? (
+          {isLoggedIn ? (
             <span
               onClick={() => navigate("baskets")}
               className="mr-5 hover:text-white cursor-pointer"
@@ -58,7 +58,7 @@ function MainHeader() {
             </span>
           ) : null}
         </nav>
-        {user ? (
+        {isLoggedIn ? (
           <button
             onClick={logoutHandler}
             className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"

@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 // Pages
+import ErrorPage from "./Pages/Error";
 import Home from "./Pages/Home";
 import IPhoneList from "./Pages/iPhoneList";
 import IPadList from "./Pages/iPadList";
@@ -18,11 +19,16 @@ import FindPassword from "./Pages/FindPassword";
 import MainHeader from "./Component/Home/MainHeader";
 import MainFooter from "./Component/Home/MainFooter";
 
+// 비로그인 처리
+import { useSelector } from "react-redux";
+
 function App() {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn.user);
   return (
     <>
       <MainHeader />
       <Routes>
+        <Route path="*" element={<ErrorPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/iphone" element={<IPhoneList />} />
         <Route path="/iphone/:id" element={<ItemInfo />} />
@@ -32,9 +38,11 @@ function App() {
         <Route path="/macbook/:id" element={<ItemInfo />} />
         <Route path="/acc" element={<AccList />} />
         <Route path="/acc/:id" element={<ItemInfo />} />
-        <Route path="/buyitem/:id" element={<BuyItem />} />
-        <Route path="/baskets" element={<Basket />} />
-        <Route path="/basketsbuyitem" element={<BasketsBuyItem />} />
+        {isLoggedIn && <Route path="/buyitem/:id" element={<BuyItem />} />}
+        {isLoggedIn && <Route path="/baskets" element={<Basket />} />}
+        {isLoggedIn && (
+          <Route path="/basketsbuyitem" element={<BasketsBuyItem />} />
+        )}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/findpassword" element={<FindPassword />} />
