@@ -230,3 +230,14 @@ export const MainAccData = [
     IMG: AirpodsPro,
   },
 ];
+
+export const ItemText = [
+  {
+    ID: 1,
+    CONTENT: "오직 동글쇼핑에서만 누리는 혜택",
+  },
+  {
+    ID: 2,
+    CONTENT: "믿을 수 있는 신뢰성을 바탕으로 특급배송까지!",
+  },
+];
