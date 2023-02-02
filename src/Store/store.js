@@ -1,42 +1,36 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import {
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import memberSlice from "./MemberSlice";
+import basketsSlice from "./BasketsSlice";
 
-const baskets = createSlice({
-  name: "baskets",
-  initialState: JSON.parse(localStorage.getItem("baskets")),
-  reducers: {
-    ChangeBaskets(state, a) {
-      return a.payload;
-    },
-    DeleteBaskets(state, a) {
-      return state === null;
-    },
-  },
+const reducers = combineReducers({
+  isLoggedIn: memberSlice.reducer,
+  basketsSlice: basketsSlice.reducer,
 });
 
-const memberSlice = createSlice({
-  name: "member",
-  initialState: {
-    user: null,
-    isAuthenticated: false,
-  },
-  reducers: {
-    login: (state, action) => {
-      state.user = action.payload;
-      state.isAuthenticated = true;
-    },
-    logout: (state) => {
-      state.user = null;
-      state.isAuthenticated = false;
-    },
-  },
+const persistConfig = {
+  key: "root",
+  storage,
+  version: 1,
+};
+
+const store = configureStore({
+  reducer: persistReducer(persistConfig, reducers),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
-export const { ChangeBaskets, DeleteBaskets } = baskets.actions;
-export const { login, logout } = memberSlice.actions;
-
-export default configureStore({
-  reducer: {
-    baskets: baskets.reducer,
-    isLoggedIn: memberSlice.reducer,
-  },
-});
+export default store;

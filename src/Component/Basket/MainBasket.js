@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { DeleteBaskets } from "../../Store/store";
+import { DeleteBaskets } from "../../Store/BasketsSlice";
 
 function MainBasket() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const basketsData = useSelector((state) => state.baskets);
+  const basketsData = useSelector((state) => state.basketsSlice);
 
   const [dataItem, setDataItem] = useState(basketsData);
 

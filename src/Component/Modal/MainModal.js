@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import "tw-elements";
 
 function MainModal(props) {
-  const { title, body, close } = props;
-  const navigate = useNavigate();
+  const { title, body, close, navigateButton, message } = props;
   return (
     <div
       className="modal fade fixed top-0 hidden left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto"
@@ -37,10 +35,10 @@ function MainModal(props) {
             <button
               type="button"
               data-bs-dismiss="modal"
-              onClick={() => navigate("/login")}
               className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-150 ease-in-out ml-1"
+              onClick={navigateButton}
             >
-              로그인하기
+              {message}
             </button>
           </div>
         </div>

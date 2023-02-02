@@ -1,11 +1,14 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../../Store/store";
+import { logout } from "../../Store/MemberSlice";
 
 function MainHeader() {
   // 네비게이션
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [abc, setAbc] = useState(false);
 
   const isLoggedIn = useSelector((state) => state.isLoggedIn.user);
 
@@ -14,6 +17,17 @@ function MainHeader() {
     dispatch(logout());
     navigate("/");
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      setAbc(true);
+    } else {
+      setAbc(false);
+    }
+  }, [isLoggedIn]);
+
+  console.log(isLoggedIn);
+  console.log(abc);
 
   return (
     <header className="text-gray-400 bg-slate-800 body-font top-0 w-full">
@@ -49,7 +63,7 @@ function MainHeader() {
           >
             악세사리
           </span>
-          {isLoggedIn ? (
+          {abc ? (
             <span
               onClick={() => navigate("baskets")}
               className="mr-5 hover:text-white cursor-pointer"
@@ -58,7 +72,7 @@ function MainHeader() {
             </span>
           ) : null}
         </nav>
-        {isLoggedIn ? (
+        {abc ? (
           <button
             onClick={logoutHandler}
             className="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 cursor-pointer"

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../../Store/store";
+import { login } from "../../../Store/MemberSlice";
 
 function MainLogin() {
   // 네비게이션
@@ -60,9 +60,9 @@ function MainLogin() {
         `${process.env.REACT_APP_LOGIN}${process.env.REACT_APP_API_KEY}`,
         { email: email, password: password }
       );
-      console.log(req);
       localStorage.setItem("user", req.data.idToken);
-      dispatch(login(req.data.idToken));
+      const a = localStorage.getItem("user");
+      dispatch(login(a));
       alert("로그인이 완료되었습니다.");
       navigate("/");
     } catch (e) {

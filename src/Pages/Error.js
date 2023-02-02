@@ -3,7 +3,7 @@ import MainModal from "../Component/Modal/MainModal";
 
 function ErrorPage() {
   const navigate = useNavigate();
-  const close2 = () => {
+  const navigateButton = () => {
     navigate("/login");
   };
   return (
@@ -20,7 +20,8 @@ function ErrorPage() {
           title="접근 오류 알림"
           body="비정상적인 경로로 접근하셨습니다!"
           close="닫기"
-          close2={close2}
+          navigateButton={navigateButton}
+          message="로그인하기"
         />
       </div>
     </div>

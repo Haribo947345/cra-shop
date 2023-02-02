@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
-import { ChangeBaskets } from "../../Store/store";
+import { ChangeBaskets } from "../../Store/BasketsSlice";
+import MainModal from "../Modal/MainModal";
 
 function MainInfo() {
   const dispatch = useDispatch();
@@ -28,24 +29,23 @@ function MainInfo() {
         if (el.ID === BasketsEl.ID) boolean = true;
       });
       if (boolean) {
-        alert("이미 장바구니에 존재하는 상품입니다!");
         return;
       }
       Baskets.push(el);
       localStorage.setItem("baskets", JSON.stringify(Baskets));
       dispatch(ChangeBaskets(Baskets));
       navigate("/baskets");
-    } else {
-      alert("로그인이 필요합니다.");
     }
   };
 
   const onClickBuyItem = () => {
     if (isLoggedIn) {
       navigate(`/buyitem/${id}`);
-    } else {
-      alert("로그인이 필요합니다.");
     }
+  };
+
+  const navigateButton = () => {
+    navigate("/login");
   };
 
   return (
@@ -174,18 +174,46 @@ function MainInfo() {
                     <span className="title-font font-medium text-2xl text-white">
                       ₩{el.PRICE}
                     </span>
-                    <button
-                      onClick={onClickBasket(el, key)}
-                      className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-                    >
-                      장바구니
-                    </button>
-                    <button
-                      onClick={onClickBuyItem}
-                      className="flex ml-3  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-                    >
-                      주문하기
-                    </button>
+                    {isLoggedIn ? (
+                      <>
+                        <button
+                          onClick={onClickBasket(el, key)}
+                          className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                        >
+                          장바구니
+                        </button>
+                        <button
+                          onClick={onClickBuyItem}
+                          className="flex ml-3  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                        >
+                          주문하기
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModalCenter"
+                        >
+                          장바구니
+                        </button>
+                        <button
+                          className="flex ml-3  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModalCenter"
+                        >
+                          주문하기
+                        </button>
+                        <MainModal
+                          title="로그인 오류 알림"
+                          body="비로그인시 이용이 불가능합니다! 로그인을 완료해주세요!"
+                          close="닫기"
+                          navigateButton={navigateButton}
+                          message="로그인하기"
+                        />
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
