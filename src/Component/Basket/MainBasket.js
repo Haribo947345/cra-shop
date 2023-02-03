@@ -82,7 +82,7 @@ function MainBasket() {
       <ErrorModal
         open={erropenModal}
         close={onClickCloseModal}
-        header="접근오류!"
+        header="장바구니 알림"
         body="장바구니에 담긴 상품이 없어요! 장바구니를 등록해주세요!"
         buttonbody1="담으러가기"
         buttonbody2="닫기"
