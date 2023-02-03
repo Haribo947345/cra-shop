@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
 import { ChangeBaskets } from "../../Store/BasketsSlice";
+import { Modal } from "../Modal/MainModal";
 
 function MainInfo() {
   const dispatch = useDispatch();
@@ -18,6 +20,20 @@ function MainInfo() {
 
   // 더미데이터 Filter
   const Info = MainHomeData.filter((Data) => Data.ID === DataID);
+
+  // 모달 관련
+  const [openModal, setOpenModal] = useState(false);
+
+  const onClickOpenModal = () => {
+    setOpenModal(true);
+  };
+  const onClickCloseModal = () => {
+    setOpenModal(false);
+  };
+  const onClickLogin = () => {
+    setOpenModal(false);
+    navigate("/login");
+  };
 
   // 장바구니 추가하기
   const onClickBasket = (el) => () => {
@@ -188,20 +204,27 @@ function MainInfo() {
                       <>
                         <button
                           className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModalCenter"
+                          onClick={onClickOpenModal}
                         >
                           장바구니
                         </button>
                         <button
                           className="flex ml-3  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModalCenter"
+                          onClick={onClickOpenModal}
                         >
                           주문하기
                         </button>
                       </>
                     )}
+                    <Modal
+                      open={openModal}
+                      close={onClickCloseModal}
+                      header="접근오류!"
+                      body="로그인은 필수 입니다!"
+                      buttonbody1="로그인하기"
+                      buttonbody2="닫기"
+                      onClick={onClickLogin}
+                    ></Modal>
                   </div>
                 </div>
               </div>

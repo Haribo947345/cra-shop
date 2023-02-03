@@ -3,6 +3,7 @@ import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../../Store/MemberSlice";
+import { SuccessModal } from "../../Modal/SuccessModal";
 
 function MainLogin() {
   // 네비게이션
@@ -53,6 +54,14 @@ function MainLogin() {
     }
   }, []);
 
+  // 모달 관련
+  const [openModal, setOpenModal] = useState(false);
+
+  const onClickCloseModal = () => {
+    setOpenModal(false);
+    navigate("/");
+  };
+
   // 로그인 관련 Axios
   const PostLogin = async () => {
     try {
@@ -63,10 +72,9 @@ function MainLogin() {
       localStorage.setItem("user", req.data.idToken);
       const a = localStorage.getItem("user");
       dispatch(login(a));
-      alert("로그인이 완료되었습니다.");
-      navigate("/");
+      setOpenModal(true);
     } catch (e) {
-      alert("로그인에 실패하였습니다.");
+      alert("수정중..");
     }
   };
 
@@ -151,6 +159,13 @@ function MainLogin() {
           </button>
         </div>
       </div>
+      <SuccessModal
+        open={openModal}
+        close={onClickCloseModal}
+        header="성공!"
+        body="로그인이 완료되었습니다. 이제 쇼핑하러 출발!"
+        buttonbody="이동!"
+      ></SuccessModal>
     </section>
   );
 }
