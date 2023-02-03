@@ -1,14 +1,21 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { DeleteBaskets } from "../../Store/BasketsSlice";
 import { SuccessModal } from "../Modal/SuccessModal";
 
 function BasketsBuyItem() {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   // 성공 모달 관련
   const [openModal, setOpenModal] = useState(false);
 
   const onClickCloseModal = () => {
     setOpenModal(false);
+    localStorage.removeItem("baskets");
+    dispatch(DeleteBaskets());
     navigate("/");
   };
 
