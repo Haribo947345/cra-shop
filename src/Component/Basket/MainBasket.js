@@ -27,17 +27,21 @@ function MainBasket() {
     dispatch(DeleteBaskets(dataItem));
   };
 
-  const onClickNullBaskets = () => {
-    setErrOpenModal(true);
+  const onClickBuyBaskets = () => {
+    if (dataItem === null || dataItem === false) {
+      setErrOpenModal(true);
+    } else {
+      navigate("/basketsbuyitem");
+    }
   };
 
   useEffect(() => {
-    const dataItemCheck = () => {
+    const newDataItem = () => {
       if (!localStorage.getItem("baskets")) {
         setErrOpenModal(true);
       }
     };
-    dataItemCheck();
+    newDataItem();
   }, [dataItem]);
 
   return (
@@ -72,12 +76,18 @@ function MainBasket() {
             </h2>
           </div>
         </div>
-        <button
-          onClick={onClickNullBaskets}
-          className="flex ml-auto mr-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-        >
-          구매하기
-        </button>
+        {dataItem ? (
+          <button
+            onClick={onClickBuyBaskets}
+            className="flex ml-auto mr-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+          >
+            구매하기
+          </button>
+        ) : (
+          <span className="flex items-center justify-center font-bold text-3xl m-auto">
+            장바구니에 담긴 상품이 없습니다!
+          </span>
+        )}
       </div>
       <ErrorModal
         open={erropenModal}
