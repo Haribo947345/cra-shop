@@ -38,10 +38,10 @@ function MainHeader() {
             아이패드
           </span>
           <span
-            onClick={() => navigate("macbook")}
+            onClick={() => navigate("mac")}
             className="mr-5 hover:text-white cursor-pointer"
           >
-            맥북
+            맥
           </span>
           <span
             onClick={() => navigate("acc")}

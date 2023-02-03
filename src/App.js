@@ -34,8 +34,8 @@ function App() {
         <Route path="/iphone/:id" element={<ItemInfo />} />
         <Route path="/ipad" element={<IPadList />} />
         <Route path="/ipad/:id" element={<ItemInfo />} />
-        <Route path="/macbook" element={<MacBookList />} />
-        <Route path="/macbook/:id" element={<ItemInfo />} />
+        <Route path="/mac" element={<MacBookList />} />
+        <Route path="/mac/:id" element={<ItemInfo />} />
         <Route path="/acc" element={<AccList />} />
         <Route path="/acc/:id" element={<ItemInfo />} />
         {isLoggedIn && <Route path="/buyitem/:id" element={<BuyItem />} />}
