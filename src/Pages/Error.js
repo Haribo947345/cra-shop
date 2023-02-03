@@ -1,29 +1,38 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MainModal from "../Component/Modal/MainModal";
+import { Modal } from "../Component/Modal/MainModal";
 
 function ErrorPage() {
   const navigate = useNavigate();
-  const navigateButton = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const onClickOpenModal = () => {
+    setOpenModal(true);
+  };
+  const onClickCloseModal = () => {
+    setOpenModal(false);
+  };
+  const onClickLogin = () => {
+    setOpenModal(false);
     navigate("/login");
   };
   return (
     <div className="flex min-h-full">
       <button
         className="flex m-auto p-7 bg-orange-800 text-white font-medium text-lg uppercase rounded shadow-md hover:bg-red-900 hover:shadow-lg transition duration-150 ease-in-out"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModalCenter"
+        onClick={onClickOpenModal}
       >
         접근할 수 없습니다!
       </button>
-      <div>
-        <MainModal
-          title="접근 오류 알림"
-          body="비정상적인 경로로 접근하셨습니다!"
-          close="닫기"
-          navigateButton={navigateButton}
-          message="로그인하기"
-        />
-      </div>
+      <Modal
+        open={openModal}
+        close={onClickCloseModal}
+        header="접근오류!"
+        body="알 수 없는 경로로 진입하셨습니다! 홈페이지로 돌아가 로그인 해주세요!"
+        buttonbody1="로그인하기"
+        buttonbody2="닫기"
+        onClick={onClickLogin}
+      ></Modal>
     </div>
   );
 }

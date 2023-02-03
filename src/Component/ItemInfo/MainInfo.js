@@ -2,13 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
 import { ChangeBaskets } from "../../Store/BasketsSlice";
-import MainModal from "../Modal/MainModal";
 
 function MainInfo() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // 로그인 확인하기
 
+  // 로그인 확인하기
   const isLoggedIn = useSelector((state) => state.isLoggedIn.user);
 
   // URL주소 ID값 가져오기
@@ -42,10 +41,6 @@ function MainInfo() {
     if (isLoggedIn) {
       navigate(`/buyitem/${id}`);
     }
-  };
-
-  const navigateButton = () => {
-    navigate("/login");
   };
 
   return (
@@ -205,13 +200,6 @@ function MainInfo() {
                         >
                           주문하기
                         </button>
-                        <MainModal
-                          title="로그인 오류 알림"
-                          body="비로그인시 이용이 불가능합니다! 로그인을 완료해주세요!"
-                          close="닫기"
-                          navigateButton={navigateButton}
-                          message="로그인하기"
-                        />
                       </>
                     )}
                   </div>
