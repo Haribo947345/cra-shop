@@ -12,13 +12,25 @@ import iPad10thgen from "../Img/iPad10thgen.png";
 import iPad9thgen from "../Img/iPad9thgen.png";
 import iPadMini from "../Img/iPadMini6thgen.png";
 
-// MacBook
+// Mac
 import MacBookAir from "../Img/MacBookAir.png";
 import MacBookPro from "../Img/MacBookPro.png";
+import iMac24 from "../Img/iMac24.png";
+import MacMini from "../Img/MacMini.png";
+import MacStudio from "../Img/MacStudio.png";
+import MacPro from "../Img/MacPro.png";
 
 // Acc
 import AirpodsMax from "../Img/AirpodsMax.png";
 import AirpodsPro from "../Img/AirpodsPro.png";
+import Airpods3gen from "../Img/Airpods3gen.png";
+import Airpods2gen from "../Img/Airpods2gen.png";
+import AppleWatchUltra from "../Img/AppleWatchUltra.png";
+import AppleWatch8 from "../Img/AppleWatch8.png";
+import AppleWatchSE from "../Img/AppleWatchSE.png";
+import ApplePencil from "../Img/ApplePencil.png";
+import MacSafe from "../Img/MacSafe.png";
+import MacSafeBettery from "../Img/MacSafeBettery.png";
 
 export const MainHomeData = [
   {
@@ -107,17 +119,101 @@ export const MainHomeData = [
   },
   {
     ID: 13,
+    CATEGORY: "Mac",
+    NAME: "iMac 24",
+    PRICE: "1,790,000",
+    IMG: iMac24,
+  },
+  {
+    ID: 14,
+    CATEGORY: "Mac",
+    NAME: "Mac Mini",
+    PRICE: "850,000",
+    IMG: MacMini,
+  },
+  {
+    ID: 15,
+    CATEGORY: "Mac",
+    NAME: "Mac Studio",
+    PRICE: "2,690,000",
+    IMG: MacStudio,
+  },
+  {
+    ID: 16,
+    CATEGORY: "Mac",
+    NAME: "Mac Pro",
+    PRICE: "7,899,000",
+    IMG: MacPro,
+  },
+  {
+    ID: 17,
     CATEGORY: "Acc",
     NAME: "Airpods Max",
     PRICE: "769,000",
     IMG: AirpodsMax,
   },
   {
-    ID: 14,
+    ID: 18,
     CATEGORY: "Acc",
     NAME: "Airpods Pro",
     PRICE: "359,000",
     IMG: AirpodsPro,
+  },
+  {
+    ID: 19,
+    CATEGORY: "Acc",
+    NAME: "Airpods 3 gen",
+    PRICE: "259,000",
+    IMG: Airpods3gen,
+  },
+  {
+    ID: 20,
+    CATEGORY: "Acc",
+    NAME: "Airpods 2 gen",
+    PRICE: "199,000",
+    IMG: Airpods2gen,
+  },
+  {
+    ID: 21,
+    CATEGORY: "Acc",
+    NAME: "Apple Watch Ultra",
+    PRICE: "1,149,000",
+    IMG: AppleWatchUltra,
+  },
+  {
+    ID: 22,
+    CATEGORY: "Acc",
+    NAME: "Apple Watch Series 8",
+    PRICE: "599,000",
+    IMG: AppleWatch8,
+  },
+  {
+    ID: 23,
+    CATEGORY: "Acc",
+    NAME: "Apple Watch SE",
+    PRICE: "359,000",
+    IMG: AppleWatchSE,
+  },
+  {
+    ID: 24,
+    CATEGORY: "Acc",
+    NAME: "Apple Pencil 2 gen",
+    PRICE: "195,000",
+    IMG: ApplePencil,
+  },
+  {
+    ID: 25,
+    CATEGORY: "Acc",
+    NAME: "Mac Safe",
+    PRICE: "59,000",
+    IMG: MacSafe,
+  },
+  {
+    ID: 26,
+    CATEGORY: "Acc",
+    NAME: "Mac Safe Bettery",
+    PRICE: "149,000",
+    IMG: MacSafeBettery,
   },
 ];
 
@@ -197,7 +293,7 @@ export const MainiPadData = [
   },
 ];
 
-export const MainMacBookData = [
+export const MainMacData = [
   {
     ID: 11,
     CATEGORY: "MacBook",
@@ -212,22 +308,106 @@ export const MainMacBookData = [
     PRICE: "3,360,000",
     IMG: MacBookPro,
   },
+  {
+    ID: 13,
+    CATEGORY: "Mac",
+    NAME: "iMac 24",
+    PRICE: "1,790,000",
+    IMG: iMac24,
+  },
+  {
+    ID: 14,
+    CATEGORY: "Mac",
+    NAME: "Mac Mini",
+    PRICE: "850,000",
+    IMG: MacMini,
+  },
+  {
+    ID: 15,
+    CATEGORY: "Mac",
+    NAME: "Mac Studio",
+    PRICE: "2,690,000",
+    IMG: MacStudio,
+  },
+  {
+    ID: 16,
+    CATEGORY: "Mac",
+    NAME: "Mac Pro",
+    PRICE: "7,899,000",
+    IMG: MacPro,
+  },
 ];
 
 export const MainAccData = [
   {
-    ID: 13,
+    ID: 17,
     CATEGORY: "Acc",
     NAME: "Airpods Max",
     PRICE: "769,000",
     IMG: AirpodsMax,
   },
   {
-    ID: 14,
+    ID: 18,
     CATEGORY: "Acc",
     NAME: "Airpods Pro",
     PRICE: "359,000",
     IMG: AirpodsPro,
+  },
+  {
+    ID: 19,
+    CATEGORY: "Acc",
+    NAME: "Airpods 3 gen",
+    PRICE: "259,000",
+    IMG: Airpods3gen,
+  },
+  {
+    ID: 20,
+    CATEGORY: "Acc",
+    NAME: "Airpods 2 gen",
+    PRICE: "199,000",
+    IMG: Airpods2gen,
+  },
+  {
+    ID: 21,
+    CATEGORY: "Acc",
+    NAME: "Apple Watch Ultra",
+    PRICE: "1,149,000",
+    IMG: AppleWatchUltra,
+  },
+  {
+    ID: 22,
+    CATEGORY: "Acc",
+    NAME: "Apple Watch Series 8",
+    PRICE: "599,000",
+    IMG: AppleWatch8,
+  },
+  {
+    ID: 23,
+    CATEGORY: "Acc",
+    NAME: "Apple Watch SE",
+    PRICE: "359,000",
+    IMG: AppleWatchSE,
+  },
+  {
+    ID: 24,
+    CATEGORY: "Acc",
+    NAME: "Apple Pencil 2 gen",
+    PRICE: "195,000",
+    IMG: ApplePencil,
+  },
+  {
+    ID: 25,
+    CATEGORY: "Acc",
+    NAME: "Mac Safe",
+    PRICE: "59,000",
+    IMG: MacSafe,
+  },
+  {
+    ID: 26,
+    CATEGORY: "Acc",
+    NAME: "Mac Safe Bettery",
+    PRICE: "149,000",
+    IMG: MacSafeBettery,
   },
 ];
 

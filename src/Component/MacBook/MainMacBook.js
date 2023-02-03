@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { MainMacBookData } from "../../Data/Data";
+import { MainMacData } from "../../Data/Data";
 
 function MainMacBook() {
   const navigate = useNavigate();
@@ -7,8 +7,8 @@ function MainMacBook() {
     <section className="text-gray-400 bg-gray-900 body-font min-h-full pb-24">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
-          {MainMacBookData &&
-            MainMacBookData.map((el, idx) => {
+          {MainMacData &&
+            MainMacData.map((el, idx) => {
               return (
                 <div
                   key={idx}
