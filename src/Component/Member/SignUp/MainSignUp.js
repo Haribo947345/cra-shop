@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { SuccessModal } from "../../Modal/SuccessModal";
 
 function MainSignUp() {
   // 네비게이션
@@ -68,6 +69,14 @@ function MainSignUp() {
     [password]
   );
 
+  // 모달 관련
+  const [openModal, setOpenModal] = useState(false);
+
+  const onClickCloseModal = () => {
+    setOpenModal(false);
+    navigate("/login");
+  };
+
   // 회원가입 관련 Axios
   const PostSignUp = async () => {
     try {
@@ -75,8 +84,7 @@ function MainSignUp() {
         `${process.env.REACT_APP_SIGNUP}${process.env.REACT_APP_API_KEY}`,
         { email: email, password: password }
       );
-      alert("회원가입이 완료되었습니다.");
-      navigate("/login");
+      setOpenModal(true);
     } catch (e) {
       alert("회원가입이 정상적으로 이루어지지 않았습니다.");
     }
@@ -172,6 +180,13 @@ function MainSignUp() {
           </p>
         </div>
       </div>
+      <SuccessModal
+        open={openModal}
+        close={onClickCloseModal}
+        header="성공!"
+        body="회원가입이 완료되었습니다. 로그인 창으로 이동합니다!"
+        buttonbody="이동"
+      ></SuccessModal>
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
 import { ChangeBaskets } from "../../Store/BasketsSlice";
-import { Modal } from "../Modal/MainModal";
+import { Modal } from "../Modal/ErrorModal";
 
 function MainInfo() {
   const dispatch = useDispatch();

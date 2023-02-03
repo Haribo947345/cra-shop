@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { SuccessModal } from "../../Modal/SuccessModal";
 
 function MainLogin() {
   // 네비게이션
@@ -31,6 +32,14 @@ function MainLogin() {
     }
   }, []);
 
+  // 모달 관련
+  const [openModal, setOpenModal] = useState(false);
+
+  const onClickCloseModal = () => {
+    setOpenModal(false);
+    navigate("/login");
+  };
+
   // 이메일 전송 관련 Axios
   const PostFindPassword = async () => {
     try {
@@ -38,7 +47,7 @@ function MainLogin() {
         `${process.env.REACT_APP_FINDPASSWORD}${process.env.REACT_APP_API_KEY}`,
         { requestType: "PASSWORD_RESET", email: email }
       );
-      alert("이메일 전송에 성공하였습니다.");
+      setOpenModal(true);
     } catch (e) {
       console.log(e);
       alert("이메일 전송에 실패하였습니다.");
@@ -101,6 +110,13 @@ function MainLogin() {
           </button>
         </div>
       </div>
+      <SuccessModal
+        open={openModal}
+        close={onClickCloseModal}
+        header="성공!"
+        body="이메일이 전송되었습니다 이메일을 확인해주세요!"
+        buttonbody="완료"
+      ></SuccessModal>
     </section>
   );
 }
