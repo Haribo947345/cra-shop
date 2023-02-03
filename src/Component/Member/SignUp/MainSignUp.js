@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { ErrorModal } from "../../Modal/ErrorModal";
 import { SuccessModal } from "../../Modal/SuccessModal";
 
 function MainSignUp() {
@@ -69,11 +70,22 @@ function MainSignUp() {
     [password]
   );
 
-  // 모달 관련
+  // 성공 모달 관련
   const [openModal, setOpenModal] = useState(false);
 
   const onClickCloseModal = () => {
     setOpenModal(false);
+    navigate("/login");
+  };
+
+  // 실패 모달 관련
+  const [erropenModal, setErrOpenModal] = useState(false);
+
+  const onClickCloseErrModal = () => {
+    setErrOpenModal(false);
+  };
+  const onClickLogin = () => {
+    setErrOpenModal(false);
     navigate("/login");
   };
 
@@ -86,7 +98,7 @@ function MainSignUp() {
       );
       setOpenModal(true);
     } catch (e) {
-      alert("회원가입이 정상적으로 이루어지지 않았습니다.");
+      setErrOpenModal(true);
     }
   };
 
@@ -187,6 +199,15 @@ function MainSignUp() {
         body="회원가입이 완료되었습니다. 로그인 창으로 이동합니다!"
         buttonbody="이동"
       ></SuccessModal>
+      <ErrorModal
+        open={erropenModal}
+        close={onClickCloseErrModal}
+        header="실패!"
+        body="회원가입이 정상적으로 이루어지지 않았습니다."
+        buttonbody1="뒤로가기"
+        buttonbody2="닫기"
+        onClick={onClickLogin}
+      ></ErrorModal>
     </section>
   );
 }

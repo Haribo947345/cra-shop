@@ -3,6 +3,7 @@ import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../../Store/MemberSlice";
+import { ErrorModal } from "../../Modal/ErrorModal";
 import { SuccessModal } from "../../Modal/SuccessModal";
 
 function MainLogin() {
@@ -54,12 +55,23 @@ function MainLogin() {
     }
   }, []);
 
-  // 모달 관련
+  // 성공 모달 관련
   const [openModal, setOpenModal] = useState(false);
 
   const onClickCloseModal = () => {
     setOpenModal(false);
     navigate("/");
+  };
+
+  // 실패 모달 관련
+  const [erropenModal, setErrOpenModal] = useState(false);
+
+  const onClickCloseErrModal = () => {
+    setErrOpenModal(false);
+  };
+  const onClickLogin = () => {
+    setErrOpenModal(false);
+    navigate("/findpassword");
   };
 
   // 로그인 관련 Axios
@@ -70,11 +82,11 @@ function MainLogin() {
         { email: email, password: password }
       );
       localStorage.setItem("user", req.data.idToken);
-      const a = localStorage.getItem("user");
-      dispatch(login(a));
+      const userInfo = localStorage.getItem("user");
+      dispatch(login(userInfo));
       setOpenModal(true);
     } catch (e) {
-      alert("수정중..");
+      setErrOpenModal(true);
     }
   };
 
@@ -166,6 +178,15 @@ function MainLogin() {
         body="로그인이 완료되었습니다. 이제 쇼핑하러 출발!"
         buttonbody="이동!"
       ></SuccessModal>
+      <ErrorModal
+        open={erropenModal}
+        close={onClickCloseErrModal}
+        header="실패!"
+        body="로그인이 정상적으로 이루어지지 않았습니다. 비밀번호를 잊어버리셨다면 비밀번호 변경버튼을 눌러주세요!"
+        buttonbody1="비밀번호 변경"
+        buttonbody2="닫기"
+        onClick={onClickLogin}
+      ></ErrorModal>
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
 import { ChangeBaskets } from "../../Store/BasketsSlice";
-import { Modal } from "../Modal/ErrorModal";
+import { ErrorModal } from "../Modal/ErrorModal";
 
 function MainInfo() {
   const dispatch = useDispatch();
@@ -216,7 +216,7 @@ function MainInfo() {
                         </button>
                       </>
                     )}
-                    <Modal
+                    <ErrorModal
                       open={openModal}
                       close={onClickCloseModal}
                       header="접근오류!"
@@ -224,7 +224,7 @@ function MainInfo() {
                       buttonbody1="로그인하기"
                       buttonbody2="닫기"
                       onClick={onClickLogin}
-                    ></Modal>
+                    ></ErrorModal>
                   </div>
                 </div>
               </div>

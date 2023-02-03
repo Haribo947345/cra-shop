@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Modal } from "../Component/Modal/ErrorModal";
+import { ErrorModal } from "../Component/Modal/ErrorModal";
 
 function ErrorPage() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function ErrorPage() {
       >
         접근할 수 없습니다!
       </button>
-      <Modal
+      <ErrorModal
         open={openModal}
         close={onClickCloseModal}
         header="접근오류!"
@@ -32,7 +32,7 @@ function ErrorPage() {
         buttonbody1="로그인하기"
         buttonbody2="닫기"
         onClick={onClickLogin}
-      ></Modal>
+      ></ErrorModal>
     </div>
   );
 }

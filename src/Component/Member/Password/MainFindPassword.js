@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { ErrorModal } from "../../Modal/ErrorModal";
 import { SuccessModal } from "../../Modal/SuccessModal";
 
 function MainLogin() {
@@ -32,12 +33,23 @@ function MainLogin() {
     }
   }, []);
 
-  // 모달 관련
+  // 성공 모달 관련
   const [openModal, setOpenModal] = useState(false);
 
   const onClickCloseModal = () => {
     setOpenModal(false);
     navigate("/login");
+  };
+
+  // 실패 모달 관련
+  const [erropenModal, setErrOpenModal] = useState(false);
+
+  const onClickCloseErrModal = () => {
+    setErrOpenModal(false);
+  };
+  const onClickLogin = () => {
+    setErrOpenModal(false);
+    navigate(-1);
   };
 
   // 이메일 전송 관련 Axios
@@ -50,7 +62,7 @@ function MainLogin() {
       setOpenModal(true);
     } catch (e) {
       console.log(e);
-      alert("이메일 전송에 실패하였습니다.");
+      setErrOpenModal(true);
     }
   };
 
@@ -117,6 +129,15 @@ function MainLogin() {
         body="이메일이 전송되었습니다 이메일을 확인해주세요!"
         buttonbody="완료"
       ></SuccessModal>
+      <ErrorModal
+        open={erropenModal}
+        close={onClickCloseErrModal}
+        header="실패!"
+        body="이메일 전송이 이루어지지 않았습니다."
+        buttonbody1="뒤로가기"
+        buttonbody2="닫기"
+        onClick={onClickLogin}
+      ></ErrorModal>
     </section>
   );
 }

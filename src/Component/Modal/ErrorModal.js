@@ -1,4 +1,4 @@
-export const Modal = (props) => {
+export const ErrorModal = (props) => {
   const { open, close, header, body, buttonbody1, buttonbody2, onClick } =
     props;
   return (
