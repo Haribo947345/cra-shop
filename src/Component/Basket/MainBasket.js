@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DeleteBaskets } from "../../Store/BasketsSlice";
+import { ErrorModal } from "../Modal/ErrorModal";
 
 function MainBasket() {
   const navigate = useNavigate();
@@ -10,11 +11,34 @@ function MainBasket() {
 
   const [dataItem, setDataItem] = useState(basketsData);
 
+  const [erropenModal, setErrOpenModal] = useState(false);
+
+  const onClickCloseModal = () => {
+    setErrOpenModal(false);
+  };
+  const onClickHome = () => {
+    setErrOpenModal(false);
+    navigate("/");
+  };
+
   const onClickBasket = () => {
     const deleteBaskets = localStorage.removeItem("baskets");
     setDataItem(deleteBaskets);
     dispatch(DeleteBaskets(dataItem));
   };
+
+  const onClickNullBaskets = () => {
+    setErrOpenModal(true);
+  };
+
+  useEffect(() => {
+    const dataItemCheck = () => {
+      if (!localStorage.getItem("baskets")) {
+        setErrOpenModal(true);
+      }
+    };
+    dataItemCheck();
+  }, [dataItem]);
 
   return (
     <section className="text-gray-400 bg-gray-900 body-font min-h-full pb-24">
@@ -49,14 +73,21 @@ function MainBasket() {
           </div>
         </div>
         <button
-          onClick={() => {
-            navigate("/basketsbuyitem");
-          }}
+          onClick={onClickNullBaskets}
           className="flex ml-auto mr-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
         >
           구매하기
         </button>
       </div>
+      <ErrorModal
+        open={erropenModal}
+        close={onClickCloseModal}
+        header="접근오류!"
+        body="장바구니에 담긴 상품이 없어요! 장바구니를 등록해주세요!"
+        buttonbody1="담으러가기"
+        buttonbody2="닫기"
+        onClick={onClickHome}
+      ></ErrorModal>
     </section>
   );
 }

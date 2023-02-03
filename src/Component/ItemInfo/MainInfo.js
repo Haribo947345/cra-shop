@@ -22,16 +22,16 @@ function MainInfo() {
   const Info = MainHomeData.filter((Data) => Data.ID === DataID);
 
   // 모달 관련
-  const [openModal, setOpenModal] = useState(false);
+  const [erropenModal, setOpenErrModal] = useState(false);
 
   const onClickOpenModal = () => {
-    setOpenModal(true);
+    setOpenErrModal(true);
   };
   const onClickCloseModal = () => {
-    setOpenModal(false);
+    setOpenErrModal(false);
   };
   const onClickLogin = () => {
-    setOpenModal(false);
+    setOpenErrModal(false);
     navigate("/login");
   };
 
@@ -217,7 +217,7 @@ function MainInfo() {
                       </>
                     )}
                     <ErrorModal
-                      open={openModal}
+                      open={erropenModal}
                       close={onClickCloseModal}
                       header="접근오류!"
                       body="로그인은 필수 입니다!"

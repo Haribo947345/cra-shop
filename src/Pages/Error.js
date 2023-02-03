@@ -4,16 +4,16 @@ import { ErrorModal } from "../Component/Modal/ErrorModal";
 
 function ErrorPage() {
   const navigate = useNavigate();
-  const [openModal, setOpenModal] = useState(false);
+  const [erropenModal, setErrOpenModal] = useState(false);
 
   const onClickOpenModal = () => {
-    setOpenModal(true);
+    setErrOpenModal(true);
   };
   const onClickCloseModal = () => {
-    setOpenModal(false);
+    setErrOpenModal(false);
   };
   const onClickLogin = () => {
-    setOpenModal(false);
+    setErrOpenModal(false);
     navigate("/login");
   };
   return (
@@ -25,7 +25,7 @@ function ErrorPage() {
         접근할 수 없습니다!
       </button>
       <ErrorModal
-        open={openModal}
+        open={erropenModal}
         close={onClickCloseModal}
         header="접근오류!"
         body="알 수 없는 경로로 진입하셨습니다! 홈페이지로 돌아가 로그인 해주세요!"

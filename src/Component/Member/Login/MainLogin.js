@@ -82,8 +82,7 @@ function MainLogin() {
         { email: email, password: password }
       );
       localStorage.setItem("user", req.data.idToken);
-      const userInfo = localStorage.getItem("user");
-      dispatch(login(userInfo));
+      dispatch(login(localStorage.getItem("user")));
       setOpenModal(true);
     } catch (e) {
       setErrOpenModal(true);
