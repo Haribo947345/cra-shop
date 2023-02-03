@@ -1,4 +1,20 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { SuccessModal } from "../Modal/SuccessModal";
+
 function BasketsBuyItem() {
+  const navigate = useNavigate();
+  // 성공 모달 관련
+  const [openModal, setOpenModal] = useState(false);
+
+  const onClickCloseModal = () => {
+    setOpenModal(false);
+    navigate("/");
+  };
+
+  const onClickBuyNow = () => {
+    setOpenModal(true);
+  };
   return (
     <section className="flex text-gray-400 bg-gray-900 body-font min-h-full pb-24">
       <div className="lg:w-1/3 md:w-1/2 bg-gray-700 shadow-md rounded-2xl  p-8 flex flex-col m-auto w-3/4 justify-center">
@@ -46,12 +62,19 @@ function BasketsBuyItem() {
           />
         </div>
         <button
-          onClick={() => alert("모든 상품의 주문이 완료되었습니다 감사합니다.")}
+          onClick={onClickBuyNow}
           className="mt-5 flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
         >
           주문완료
         </button>
       </div>
+      <SuccessModal
+        open={openModal}
+        close={onClickCloseModal}
+        header="성공!"
+        body="전체상품 주문이 완료되었습니다 빠른 시일 내에 배송해드릴게요!"
+        buttonbody="완료"
+      ></SuccessModal>
     </section>
   );
 }

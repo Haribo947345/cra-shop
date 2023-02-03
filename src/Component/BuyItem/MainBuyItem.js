@@ -1,8 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { MainHomeData } from "../../Data/Data";
+import { SuccessModal } from "../Modal/SuccessModal";
 
 function MainBuyItem() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   // 더미데이터 ID Number로 감싸기 -> 감싸지 않을경우 string 타입으로 false 출력
   const DataID = Number(id);
@@ -14,6 +17,18 @@ function MainBuyItem() {
   const InfoCATEGORY = Info.map((el) => el.CATEGORY);
   const InfoNAME = Info.map((el) => el.NAME);
   const InfoPRICE = Info.map((el) => el.PRICE);
+
+  // 성공 모달 관련
+  const [openModal, setOpenModal] = useState(false);
+
+  const onClickCloseModal = () => {
+    setOpenModal(false);
+    navigate("/");
+  };
+
+  const onClickBuyNow = () => {
+    setOpenModal(true);
+  };
 
   return (
     <section className="flex text-gray-400 bg-gray-900 body-font min-h-full pb-24">
@@ -95,12 +110,19 @@ function MainBuyItem() {
           />
         </div>
         <button
-          onClick={() => alert("주문이 완료되었습니다 감사합니다.")}
+          onClick={onClickBuyNow}
           className="mt-5 flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
         >
           주문완료
         </button>
       </div>
+      <SuccessModal
+        open={openModal}
+        close={onClickCloseModal}
+        header="성공!"
+        body="주문이 완료되었습니다 빠른 시일 내에 배송해드릴게요!"
+        buttonbody="완료"
+      ></SuccessModal>
     </section>
   );
 }
